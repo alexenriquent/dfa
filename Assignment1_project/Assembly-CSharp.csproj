@@ -60,8 +60,11 @@
      <Compile Include="Assets\SciFi level\Standard Assets\Image Effects (Pro Only)\SepiaToneEffect.cs" />
      <Compile Include="Assets\SciFi level\Standard Assets\Image Effects (Pro Only)\TwirlEffect.cs" />
      <Compile Include="Assets\SciFi level\Standard Assets\Image Effects (Pro Only)\VortexEffect.cs" />
-     <Compile Include="Assets\YourAssignment1Stuff\Agent4.cs" />
+     <Compile Include="Assets\YourAssignment1Stuff\AggressiveAgent.cs" />
      <Compile Include="Assets\YourAssignment1Stuff\DFA.cs" />
+     <Compile Include="Assets\YourAssignment1Stuff\Trigger4A.cs" />
+     <Compile Include="Assets\YourAssignment1Stuff\Trigger4B.cs" />
+     <Compile Include="Assets\YourAssignment1Stuff\Trigger4C.cs" />
      <None Include="Assets\SciFi level\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\SciFi level\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\SciFi level\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
