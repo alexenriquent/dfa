@@ -23,7 +23,7 @@ public class Agent4 : DFA {
 
         if (Vector3.Distance(transform.position, destPos) < 0.1f) {
             currPatrolPoint++;
-            destPos = patrolPoints[(currPatrolPoint) % 3].position;
+            destPos = patrolPoints[(currPatrolPoint) % patrolPoints.Length].position;
         }
       
         targetDir = destPos - transform.position;
