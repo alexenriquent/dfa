@@ -7,8 +7,8 @@ class CameraMotionBlurEditor extends Editor
 	var serObj : SerializedObject;	
 		
   var filterType : SerializedProperty;
-  var preview : SerializedProperty;
-  var previewScale : SerializedProperty;
+//  var preview : SerializedProperty;
+//  var previewScale : SerializedProperty;
   var movementScale : SerializedProperty;
   var rotationScale : SerializedProperty;
   var maxVelocity : SerializedProperty;
