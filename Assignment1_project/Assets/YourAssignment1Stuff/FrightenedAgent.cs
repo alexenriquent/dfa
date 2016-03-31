@@ -54,6 +54,10 @@ public class FrightenedAgent : DFA {
     }
 
     private void ResetState() {
+        if (state == -1) {
+            state = 0;
+        }
+
         patrolPoint = 0;
         hidePoint = 0;
         fleePoint = 0;
@@ -88,7 +92,7 @@ public class FrightenedAgent : DFA {
 
         if (Vector3.Distance(transform.position, destination) < 0.1f) {
             if (transform.position.y <= awarePoint.position.y) {
-                rb.velocity = new Vector3(0, 3, 0);
+                rb.velocity = new Vector3(0, 7, 0);
             }
         }
 

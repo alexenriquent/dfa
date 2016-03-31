@@ -1,9 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/YourAssignment1Stuff/Agent4.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/YourAssignment1Stuff/StrategicAgent.cs">
     <Files>
-      <File FileName="Assets/YourAssignment1Stuff/DFA.cs" Line="15" Column="20" />
-      <File FileName="Assets/YourAssignment1Stuff/Agent4.cs" Line="27" Column="10" />
+      <File FileName="Assets/YourAssignment1Stuff/AggressiveAgent.cs" Line="115" Column="7" />
+      <File FileName="Assets/YourAssignment1Stuff/FrightenedAgent.cs" Line="31" Column="65" />
+      <File FileName="Assets/YourAssignment1Stuff/StrategicAgent.cs" Line="25" Column="58" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
