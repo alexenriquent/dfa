@@ -62,6 +62,12 @@
      <Compile Include="Assets\SciFi level\Standard Assets\Image Effects (Pro Only)\VortexEffect.cs" />
      <Compile Include="Assets\YourAssignment1Stuff\AggressiveAgent.cs" />
      <Compile Include="Assets\YourAssignment1Stuff\DFA.cs" />
+     <Compile Include="Assets\YourAssignment1Stuff\FrightenedAgent.cs" />
+     <Compile Include="Assets\YourAssignment1Stuff\Trigger2A.cs" />
+     <Compile Include="Assets\YourAssignment1Stuff\Trigger2B.cs" />
+     <Compile Include="Assets\YourAssignment1Stuff\Trigger2C.cs" />
+     <Compile Include="Assets\YourAssignment1Stuff\Trigger2D.cs" />
+     <Compile Include="Assets\YourAssignment1Stuff\Trigger2E.cs" />
      <Compile Include="Assets\YourAssignment1Stuff\Trigger4A.cs" />
      <Compile Include="Assets\YourAssignment1Stuff\Trigger4B.cs" />
      <Compile Include="Assets\YourAssignment1Stuff\Trigger4C.cs" />

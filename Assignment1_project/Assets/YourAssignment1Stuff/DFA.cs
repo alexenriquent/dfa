@@ -3,11 +3,10 @@ using System.Collections;
 
 abstract public class DFA : MonoBehaviour {
 
-    protected Transform playerTransform;
-    protected Vector3 destPos;
-//    protected GameObject[] pointList;
-    protected int currState;
-    protected int[,] dfaSpec;
+    protected Transform player;
+    protected Vector3 destination;
+    protected int state;
+    protected int[,] specification;
 
     protected abstract void Initialise();
     protected abstract void DFAUpdate();

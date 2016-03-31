@@ -7,28 +7,29 @@ public class AggressiveAgent : DFA {
     public Transform[] patrolPoints;
     public Transform[] alertPoints;
     public Transform[] hidePoints;
-    private int currPatrolPoint;
-    private int currAlertPoint;
-    private int currHidePoint;
+    public Transform attackPoint;
+    private int patrolPoint;
+    private int alertPoint;
+    private int hidePoint;
     private float speed;
  
 	protected override void Initialise() {
-        currState = 0;
-        speed = 1.5f;
-        currPatrolPoint = 0;
-        currAlertPoint = 0;
-        currHidePoint = 0;
+        state = 0;
+        speed = 2.0f;
+        patrolPoint = 0;
+        alertPoint = 0;
+        hidePoint = 0;
         GameObject objPlayer = GameObject.FindGameObjectWithTag("Player");
-        playerTransform = objPlayer.transform;
-        destPos = patrolPoints[currPatrolPoint].position;
-        dfaSpec = new int[,]{{1, 0, 1, -1, -1},
-                             {0, 1, 0, 2, -1},
-                             {0, 2, -1, 1, 3},
-                             {1, 3, -1, -1, 2}};
+        player = objPlayer.transform;
+        destination = patrolPoints[patrolPoint].position;
+        specification = new int[,] {{1, 0, 1, -1, -1},
+                                    {0, 1, 0, 2, -1},
+                                    {0, 2, -1, 1, 3},
+                                    {1, 3, -1, -1, 2}};
     }
 
     protected override void DFAUpdate() {
-        switch (currState) {
+        switch (state) {
             case 0: Patrol(); break;
             case 1: Alert(); break;
             case 2: Hide(); break;
@@ -42,88 +43,88 @@ public class AggressiveAgent : DFA {
     }
 
     public void DFAProgram(int trigger) {
-        Debug.Log("Current state: " + currState); 
-        currState = dfaSpec[currState, trigger];
+        Debug.Log("Current state: " + state); 
+        state = specification[state, trigger];
         ResetState();
-        Debug.Log("Trigger: " + trigger + " Current state: " + currState);
+        Debug.Log("Trigger: " + (trigger - 1) + " Current state: " + state);
     }
 
     private void ResetState() {
-        currPatrolPoint = 0;
-        currAlertPoint = 0;
-        currHidePoint = 0;
+        patrolPoint = 0;
+        alertPoint = 0;
+        hidePoint = 0;
 
-        switch (currState) {
-            case 0: destPos = patrolPoints[currPatrolPoint].position; break;
-            case 1: destPos = alertPoints[currAlertPoint].position; break;
-            case 2: destPos = hidePoints[currHidePoint].position; break;
+        switch (state) {
+            case 0: destination = patrolPoints[patrolPoint].position; break;
+            case 1: destination = alertPoints[alertPoint].position; break;
+            case 2: destination = hidePoints[hidePoint].position; break;
         }
     }
 
     private void Patrol() {
-        Vector3 targetDir;
-        Vector3 newDir;
+        Vector3 target;
+        Vector3 direction;
 
-        if (Vector3.Distance(transform.position, destPos) < 0.1f) {
-            currPatrolPoint++;
-            destPos = patrolPoints[currPatrolPoint % patrolPoints.Length].position;
+        if (Vector3.Distance(transform.position, destination) < 0.1f) {
+            patrolPoint++;
+            destination = patrolPoints[patrolPoint % patrolPoints.Length].position;
         }
       
-        targetDir = destPos - transform.position;
-        newDir = Vector3.RotateTowards(transform.forward, targetDir, 2.0f, Time.deltaTime * 0.0f);
-        transform.rotation = Quaternion.LookRotation(newDir);
-        transform.position = Vector3.MoveTowards(transform.position, destPos, Time.deltaTime * speed);
+        target = destination - transform.position;
+        direction = Vector3.RotateTowards(transform.forward, target, 2.0f, Time.deltaTime * 0.0f);
+        transform.rotation = Quaternion.LookRotation(direction);
+        transform.position = Vector3.MoveTowards(transform.position, destination, Time.deltaTime * speed);
     }
 
     private void Alert() {
-        Vector3 targetDir;
-        Vector3 newDir;
+        Vector3 target;
+        Vector3 direction;
 
         if (Vector3.Distance(transform.position, hidePoints[1].position) < 0.1f) {
-            destPos = hidePoints[0].position;
+            destination = hidePoints[0].position;
         }
 
-        if (Vector3.Distance(transform.position, destPos) < 0.1f) {
-            currAlertPoint++;
-            destPos = alertPoints[currAlertPoint % alertPoints.Length].position;
+        if (Vector3.Distance(transform.position, destination) < 0.1f) {
+            alertPoint++;
+            destination = alertPoints[alertPoint % alertPoints.Length].position;
         } 
 
-        targetDir = destPos - transform.position;
-        newDir = Vector3.RotateTowards(transform.forward, targetDir, 2.0f, Time.deltaTime * 0.0f);
-        transform.rotation = Quaternion.LookRotation(newDir);
-        transform.position = Vector3.MoveTowards(transform.position, destPos, Time.deltaTime * (speed * 1.5f));
+        target = destination - transform.position;
+        direction = Vector3.RotateTowards(transform.forward, target, 2.0f, Time.deltaTime * 0.0f);
+        transform.rotation = Quaternion.LookRotation(direction);
+        transform.position = Vector3.MoveTowards(transform.position, destination, Time.deltaTime * (speed * 1.5f));
     }
 
     private void Hide() {
-        Vector3 targetDir;
-        Vector3 newDir;
+        Vector3 target;
+        Vector3 direction;
 
-        if (Vector3.Distance(transform.position, destPos) < 0.1f) {
-            currHidePoint = 1;
-            destPos = hidePoints[currHidePoint].position;
+        if (Vector3.Distance(transform.position, destination) < 0.1f) {
+            hidePoint = 1;
+            destination = hidePoints[hidePoint].position;
         }
 
-        targetDir = destPos - transform.position;
-        newDir = Vector3.RotateTowards(transform.forward, targetDir, 2.0f, Time.deltaTime * 0.0f);
-        transform.rotation = Quaternion.LookRotation(newDir);
-        transform.position = Vector3.MoveTowards(transform.position, destPos, Time.deltaTime * (speed * 1.5f));
+        target = destination - transform.position;
+        direction = Vector3.RotateTowards(transform.forward, target, 2.0f, Time.deltaTime * 0.0f);
+        transform.rotation = Quaternion.LookRotation(direction);
+        transform.position = Vector3.MoveTowards(transform.position, destination, Time.deltaTime * (speed * 1.5f));
       
     }
 
     private void Attack() {
-        Vector3 targetDir;
-        Vector3 newDir;
+        Vector3 target;
+        Vector3 direction;
 
         if (Vector3.Distance(transform.position, hidePoints[1].position) < 0.1f) {
-            destPos = hidePoints[0].position;
+            destination = attackPoint.position;
         }
-        if (Vector3.Distance(transform.position, hidePoints[0].position) < 0.1f) {
-            destPos = playerTransform.position;
+        if (Vector3.Distance(transform.position, attackPoint.position) < 0.1f) {
+            destination = player.position;
         }
 
-        targetDir = destPos - transform.position;
-        newDir = Vector3.RotateTowards(transform.forward, targetDir, 2.0f, Time.deltaTime * 0.0f);
-        transform.rotation = Quaternion.LookRotation(newDir);
-        transform.position = Vector3.MoveTowards(transform.position, destPos, Time.deltaTime * (speed * 1.5f));
+        target = destination - transform.position;
+        direction = Vector3.RotateTowards(transform.forward, target, 2.0f, Time.deltaTime * 0.0f);
+        transform.rotation = Quaternion.LookRotation(direction);
+        transform.position = Vector3.MoveTowards(transform.position, destination, Time.deltaTime * (speed * 1.5f));
     }
 }
