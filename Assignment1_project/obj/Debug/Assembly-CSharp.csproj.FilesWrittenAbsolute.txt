@@ -11,3 +11,7 @@
 /Users/Richardricmn/Desktop/Assignment1_project/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/Richardricmn/Desktop/Assignment1_project/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/Richardricmn/Desktop/Assignment1_project/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/Richardricmn/Desktop/Assignment1_project/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/Richardricmn/Desktop/Assignment1_project/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/Richardricmn/Desktop/Assignment1_project/obj/Debug/Assembly-CSharp.dll
+/Users/Richardricmn/Desktop/Assignment1_project/obj/Debug/Assembly-CSharp.dll.mdb
