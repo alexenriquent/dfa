@@ -1,21 +1,31 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
-abstract public class DFA : MonoBehaviour {
+public class DFA {
 
-    protected Transform player;
-    protected Vector3 destination;
-    protected int state;
-    protected int[,] specification;
+	private int state;
+    private int[,] specification;
 
-    protected abstract void Initialise();
-    protected abstract void DFAUpdate();
-
-    void Start () {
-        Initialise();
+    public DFA(int[,] specification) {
+        this.state = 0;
+        this.specification = specification;
     }
-    
-    void Update () {
-        DFAUpdate();
+
+    public int State {
+        get { return this.state; }
+        set { this.state = value; }
+    }
+
+    public int[,] Specification {
+        get { return this.specification; }
+        set { this.specification = value; }
+    }
+
+    public void DFAProgram(string trigger) {
+        Debug.Log("Current state: " + this.state);
+        int index = Convert.ToInt32(trigger);
+        this.state = specification[this.state, index + 1];
+        Debug.Log("Trigger: " + index + " Current state: " + this.state);
     }
 }
