@@ -7,7 +7,7 @@ public class EntityAgent : NPC {
     private Vector3 angularVelocity;
     private const int MAGNITUDE = 0;
 
-	void Start () {
+	void Start() {
         this.speed = 5.0f;
         this.gameManager = GameObject.FindGameObjectWithTag("GameManager").
                            GetComponent<GameManager>();

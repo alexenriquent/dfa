@@ -6,7 +6,7 @@ public class StrategicAgent : AStarNPC {
     private Bounds area;
     public Transform hidePoint;
 
-	void Start () {
+	void Start() {
         this.speed = 5.0f;
         this.gameManager = GameObject.FindGameObjectWithTag("GameManager").
                            GetComponent<GameManager>();
@@ -23,7 +23,7 @@ public class StrategicAgent : AStarNPC {
                     {0, 3, -1, -1, 2, 3, 3}});
 	}
 	
-	void Update () {
+	void Update() {
         switch (this.dfa.State) {
             case 0: Idle(); break;
             case 1: Patrol(); break;

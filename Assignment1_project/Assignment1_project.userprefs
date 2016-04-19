@@ -1,6 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/YourAssignment1Stuff/GameManager.cs">
+    <Files>
+      <File FileName="Assets/YourAssignment1Stuff/GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/YourAssignment1Stuff/DFA.cs" Line="1" Column="1" />
+      <File FileName="Assets/YourAssignment1Stuff/AStarPath.cs" Line="1" Column="1" />
+      <File FileName="Assets/YourAssignment1Stuff/AStarNPC.cs" Line="1" Column="1" />
+      <File FileName="Assets/YourAssignment1Stuff/NPC.cs" Line="1" Column="1" />
+      <File FileName="Assets/YourAssignment1Stuff/GuardAgent.cs" Line="1" Column="1" />
+      <File FileName="Assets/YourAssignment1Stuff/FrightenedAgent.cs" Line="7" Column="32" />
+      <File FileName="Assets/YourAssignment1Stuff/StrategicAgent.cs" Line="26" Column="13" />
+      <File FileName="Assets/YourAssignment1Stuff/EntityAgent.cs" Line="10" Column="12" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
